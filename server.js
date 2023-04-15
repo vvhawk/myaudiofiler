@@ -1,5 +1,7 @@
 //require is used to link libs from our dependencies
 
+//.env database url: DATABASE_URL = mongodb://localhost/myAudiofiler
+
 if(process.env.NODE_ENV !== 'production' ){
     require('dotenv').config()
 }
