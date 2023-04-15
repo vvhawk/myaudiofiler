@@ -2,6 +2,9 @@
 
 //.env database url: DATABASE_URL = mongodb://localhost/myAudiofiler
 
+// .env database url: DATABASE_URL = mongodb+srv://bvasanth18:<4lq24v4NODY6mlp7>@myaudiofiler.iwn2ulf.mongodb.net/?retryWrites=true&w=majority
+
+
 if(process.env.NODE_ENV !== 'production' ){
     require('dotenv').config()
 }
@@ -12,6 +15,7 @@ const app = express() //app portion
 const expressLayouts = require('express-ejs-layouts')
 
 const indexRouter = require('./routes/index')
+const artistRouter = require('./routes/artists')
 
 app.set('view engine', 'ejs') // Embedded JavaScript Templating = view engine
 app.set('views', __dirname + '/views') //where server rendered views coming from
@@ -27,5 +31,6 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
 
 app.use('/', indexRouter)
+app.use('/artists', artistRouter) //prepend routes with 'artists'
 
 app.listen(process.env.PORT || 3000)
