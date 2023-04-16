@@ -18,6 +18,7 @@ const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index')
 const artistRouter = require('./routes/artists')
+const albumRouter = require('./routes/albums')
 
 app.set('view engine', 'ejs') // Embedded JavaScript Templating = view engine
 app.set('views', __dirname + '/views') //where server rendered views coming from
@@ -35,5 +36,6 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 app.use('/', indexRouter)
 app.use('/artists', artistRouter) //prepend routes with 'artists'
+app.use('/albums', albumRouter)
 
 app.listen(process.env.PORT || 3000)
