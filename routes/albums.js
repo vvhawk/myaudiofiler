@@ -22,7 +22,30 @@ const upload = multer({
 
 // all albums route
 router.get('/', async (req, res) => {
-res.send('All Albums')
+    let query = Album.find()
+    if(req.query.title != null && req.query.title != '')
+    {
+        query = query.regex('title', new RegExp(req.query.title, 'i'))
+    }
+    if(req.query.releasedBefore != null && req.query.releasedBefore != '')
+    {
+        query = query.lte('releaseDate', req.query.releasedBefore)
+    }
+    if(req.query.releasedAfter != null && req.query.releasedAfter != '')
+    {
+        query = query.gte('releaseDate', req.query.releasedAfter)
+    }
+    try{
+        const albums = await query.exec()
+
+        res.render('albums/index', {
+            albums: albums,
+            searchOptions: req.query
+        })
+    } catch{
+        res.redirect('/')
+    }
+
 })
 
 // new album route
@@ -45,7 +68,7 @@ router.get('/new', async (req, res) => {
 //create album route
 
 router.post('/', upload.single('cover'), async (req, res) => {
-    const fileName = req.file != null ? req.file.fieldname : null
+    const fileName = req.file != null ? req.file.filename : null
     const album = new Album({
         title: req.body.title,
         artist: req.body.artist,
@@ -58,10 +81,10 @@ router.post('/', upload.single('cover'), async (req, res) => {
     try{
 
         const newAlbum = await album.save()
-        res.redirect('albums/${newAlbum.id}')
+        //res.redirect('albums/${newAlbum.id}')
         res.redirect('albums')
 
-        print("hello")
+    
 
     }catch{
 

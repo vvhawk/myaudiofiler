@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const path = require('path')
 const coverImageBasePath = 'uploads/albumCovers'
 
 const albumSchema = new mongoose.Schema({
@@ -36,6 +36,11 @@ const albumSchema = new mongoose.Schema({
     
 })
 
+albumSchema.virtual('coverImagePath').get(function(){
+    if (this.coverImageName != null){
+        return path.join('/',coverImageBasePath,this.coverImageName)
+    }
+})
 
 module.exports = mongoose.model('Album', albumSchema)
 
