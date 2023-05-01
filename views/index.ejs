@@ -1,8 +1,8 @@
-<h2>Recently Added<h2>
+<h2 class = "page-header" >Recently Added<h2>
     <div>
         <% albums.forEach(album => { %>
             <a href = "/albums/<%= album.id %>">
-                <img height = "150" width = "150" src = "<%= album.coverImagePath %>">
+                <img height = "300" width = "300" src = "<%= album.coverImagePath %>">
             </a>
         <% }) %>
      </div>

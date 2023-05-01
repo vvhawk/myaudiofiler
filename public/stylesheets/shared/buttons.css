@@ -1,0 +1,55 @@
+:root {
+    --color-btn-primary-background: rgb(106, 120, 245);
+    --color-btn-primary-background-dark: rgb(90, 193, 94); 
+    --color-btn-primary-text: rgb(255, 255, 255);
+    --color-btn-primary-text-dark: rgb(255, 255, 255);
+    --color-btn-border: rgb(236, 211, 156);
+    --color-btn-danger-background: rgb(247, 104, 104);
+    --color-btn-danger-background-dark: rgb(247, 69, 69);
+    --color-btn-danger-text: rgb(246, 172, 172);
+    --color-btn-danger-text-dark: rgb(255, 255, 255);
+  }
+  
+  .btn {
+    border: 1px solid var(--color-btn-border);
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    font-family: 'Gotham Rounded';
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .btn-row {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .btn-row > * {
+    margin-left: 1rem;
+  }
+  
+  .btn-row > *:first-child {
+    margin-left: 0;
+  }
+  
+  .btn-primary {
+    color: var(--color-btn-primary-text);
+    background-color: var(--color-btn-primary-background);
+  }
+  
+  .btn-primary:hover {
+    color: var(--color-btn-primary-text-dark);
+    background-color: var(--color-btn-primary-background-dark);
+  }
+  
+  .btn-danger {
+    color: var(--color-btn-danger-text);
+    background-color: var(--color-btn-danger-background);
+  }
+  
+  .btn-danger:hover {
+    color: var(--color-btn-danger-text-dark);
+    background-color: var(--color-btn-danger-background-dark);
+  }

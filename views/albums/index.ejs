@@ -1,23 +1,29 @@
-<h2>Search Albums</h2>
-<form action = "/albums" method="GET">
-    <div>
-        <label>Title</label>
-        <input type = "text" name = "title" value = "<%= searchOptions.title %>">
+<h2 class="page-header">Search Albums</h2>
+<form action="/albums" method="GET">
+  <div class="form-row">
+    <div class="form-item">
+      <label>Title</label>
+      <input type="text" name="title" value="<%= searchOptions.title %>">
     </div>
-    <div>
-        <label>Released After</label>
-        <input type = "date" name = "releasedAfter" value = "<%= searchOptions.releasedAfter %>">
+  </div>
+  <div class="form-row">
+    <div class="form-item">
+      <label>Released After</label>
+      <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
     </div>
-    <div>
-        <label>Released Before</label>
-        <input type = "date" name = "releasedBefore" value = "<%= searchOptions.releasedBefore %>">
+    <div class="form-item">
+      <label>Released Before</label>
+      <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
     </div>
-<button type = "submit">Search</button>
+  </div>
+  <div class="form-row form-row-end">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
 </form>
 <div>
-<% albums.forEach(album => { %>
+  <% albums.forEach(album => { %>
     <a href="/albums/<%= album.id %>">
-    <img height = "150" width = "150" src = "<%= album.coverImagePath %>">
+      <img height="300" width="300" src="<%= album.coverImagePath %>">
     </a>
-<% }) %>
+  <% }) %>
 </div>

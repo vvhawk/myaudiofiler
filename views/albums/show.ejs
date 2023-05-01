@@ -1,10 +1,21 @@
-<h2><%= album.title %></h2>
-<img width="150" height="150" src="<%= album.coverImagePath %>">
-<div>Artist: <%= album.artist.name %></div>
-<div>Release Date: <%= album.releaseDate.toDateString() %></div>
-<div>Tracks: <%= album.length %></div>
-<div>Notes: <%= album.notes %></div>
-
-<a href="/albums/<%= album.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/albums/${album.id}` }) %>
-<a href="/artists/<%= album.artist.id %>">View Artist</a>
+<h2 class="page-header"><%= album.title %></h2>
+<div class="album-details">
+  <div>
+    <img class="album-cover" src="<%= album.coverImagePath %>">
+    <div class="album-details-btn-grid">
+      <a class="btn btn-primary" href="/albums/<%= album.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm', { url: `/albums/${album.id}` }) %>
+      <a class="btn btn-primary album-details-artist-button" href="/artists/<%= album.artist.id %>">View Artist</a>
+    </div>
+  </div>
+  <div class="album-details-grid">
+    <div class="album-details-label">Artist:</div>
+    <div><%= album.artist.name %></div>
+    <div class="album-details-label">Release Date:</div>
+    <div><%= album.releaseDate.toDateString() %></div>
+    <div class="album-details-label">Tracks:</div>
+    <div><%= album.length %></div>
+    <div class="album-details-label">Notes:</div>
+    <div><%= album.notes %></div>
+  </div>
+</div>
