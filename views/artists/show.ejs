@@ -5,6 +5,8 @@
 <% if (albumsByArtist.length > 0) { %>
   <h2>Albums By Artist</h2>
   <% albumsByArtist.forEach(album => { %>
-    <img height="150" width="150" src="<%= album.coverImagePath %>">
+    <a href = "/albums/<%= album.id %>">
+      <img height="150" width="150" src="<%= album.coverImagePath %>">
+    </a>
   <% }) %>
 <% } %>

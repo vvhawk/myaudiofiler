@@ -16,6 +16,8 @@
 </form>
 <div>
 <% albums.forEach(album => { %>
+    <a href="/albums/<%= album.id %>">
     <img height = "150" width = "150" src = "<%= album.coverImagePath %>">
+    </a>
 <% }) %>
 </div>

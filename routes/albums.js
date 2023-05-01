@@ -99,20 +99,20 @@ router.post('/', upload.single('cover'), async (req, res) => {
 })
 
 
-async function renderNewPage(res, album, hasError = false){
-    try{
-        const artists = await Artist.find()
-        const params = {
-            artists: artists,
-            album: album
-        }
+// async function renderNewPage(res, album, hasError = false){
+//     try{
+//         const artists = await Artist.find()
+//         const params = {
+//             artists: artists,
+//             album: album
+//         }
 
-        if (hasError) params.errorMessage = 'Error Creating Album'
-        res.render('albums/new', params)
-    }catch{
-        res.redirect('/albums')
-    }
-}
+//         if (hasError) params.errorMessage = 'Error Creating Album'
+//         res.render('albums/new', params)
+//     }catch{
+//         res.redirect('/albums')
+//     }
+// }
 
 
 // issues here 32:43
@@ -123,6 +123,108 @@ function removeAlbumCover(fileName)
     })
 
 }
+
+
+
+
+
+
+
+// Show album Route
+router.get('/:id', async (req, res) => {
+    try {
+      const album = await Album.findById(req.params.id)
+                             .populate('artist')
+                             .exec()
+      res.render('albums/show', { album: album })
+    } catch {
+      res.redirect('/')
+    }
+  })
+  
+  // Edit album Route
+  router.get('/:id/edit', async (req, res) => {
+    try {
+      const album = await Album.findById(req.params.id)
+      renderEditPage(res, album)
+    } catch {
+      res.redirect('/')
+    }
+  })
+  
+  // Update album Route
+  router.put('/:id', async (req, res) => {
+    let album
+  
+    try {
+      album = await Album.findById(req.params.id)
+      album.title = req.body.title
+      album.artist = req.body.artist
+      album.publishDate = new Date(req.body.publishDate)
+      album.pageCount = req.body.pageCount
+      album.description = req.body.description
+      if (req.body.cover != null && req.body.cover !== '') {
+        saveCover(album, req.body.cover)
+      }
+      await album.save()
+      res.redirect(`/albums/${album.id}`)
+    } catch {
+      if (album != null) {
+        renderEditPage(res, album, true)
+      } else {
+        res.redirect('/')
+      }
+    }
+  })
+  
+  // Delete album Page
+  router.delete('/:id', async (req, res) => {
+    let album
+    try {
+      album = await Album.findById(req.params.id)
+      await album.remove()
+      res.redirect('/albums')
+    } catch {
+      if (album != null) {
+        res.render('albums/show', {
+          album: album,
+          errorMessage: 'Could not remove album'
+        })
+      } else {
+        res.redirect('/')
+      }
+    }
+  })
+  
+  async function renderNewPage(res, album, hasError = false) {
+    renderFormPage(res, album, 'new', hasError)
+  }
+  
+  async function renderEditPage(res, album, hasError = false) {
+    renderFormPage(res, album, 'edit', hasError)
+  }
+  
+  async function renderFormPage(res, album, form, hasError = false) {
+    try {
+      const artists = await Artist.find({})
+      const params = {
+        artists: artists,
+        album: album
+      }
+      if (hasError) {
+        if (form === 'edit') {
+          params.errorMessage = 'Error Updating album'
+        } else {
+          params.errorMessage = 'Error Creating album'
+        }
+      }
+      res.render(`albums/${form}`, params)
+    } catch {
+      res.redirect('/albums')
+    }
+  }
+
+
 
 
 
