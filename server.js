@@ -15,6 +15,7 @@ const express = require('express') //imports express library
 const app = express() //app portion
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
 const artistRouter = require('./routes/artists')
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs') // Embedded JavaScript Templating = view engine
 app.set('views', __dirname + '/views') //where server rendered views coming from
 app.set('layout', 'layouts/layout') //reuse layouts
 app.use(expressLayouts)
+app.use(methodOverride('_method'))
 app.use(express.static('public')) // public views
 app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
 
