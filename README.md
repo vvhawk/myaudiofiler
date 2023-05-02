@@ -84,7 +84,7 @@ We ran out tests using [Jest](https://jestjs.io/).
 
 We split our test code into two categories: [Albums](./albumTest.js) and [Artists](./artistTest.js)
 
-View our detailed [Test Report]() for more info. 
+View our detailed [Test Report](./documents/testreport.pdf) for more info. 
 
 
 ## Collaboration
