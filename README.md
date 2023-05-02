@@ -12,6 +12,10 @@ We are deploying our app using Render. Preview it [HERE](https://myaudiofiler.on
 
 For more information, feel free to view our documentation below. 
 
+* [Requirement Report](./documents/requirements.pdf)
+* [Design Document](./documents/design.pdf)
+* [Overview Presentation](./documents/presentation.pdf)
+* [Demo Presenation](./documents/demo.pdf)
 
 
 ## Implementation
@@ -43,4 +47,13 @@ Use the command ```npm run devStart``` to run locally
 
 ## Testing
 
+We ran out tests using [Jest](https://jestjs.io/). 
+
+We split our test code into two categories: [Albums](./albumTest.js) and [Artists](./artistTest.js)
+
+View our detailed [Test Report]() for more info. 
+
+
 ## Collaboration
+
+View our [Collaboration Guide](./documents/collaboration.pdf) to see how we developed the app
