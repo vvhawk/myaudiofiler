@@ -2,6 +2,7 @@
 
 ## Overview
 
+
 Welcome to myAudiofiler, our group project for [SOFTWARE ENGINEERING 01:198:431](https://www.cs.rutgers.edu/academics/undergraduate/course-synopses/course-details/01-198-431-software-engineering) @ Rutgers University
 
 This cloub-based web app is a personalized music management solution for record collectors/audiophiles. 
@@ -17,6 +18,28 @@ For more information, feel free to view our documentation below.
 * [Overview Presentation](./documents/presentation.pdf)
 * [Demo Presenation](./documents/demo.pdf)
 
+## Functionality
+
+### Add Artists
+<p align="center">
+  <img src="./extras/addArtist.gif" width="500" height="350" />
+</p>
+
+### Add Albums
+
+<p align="center">
+  <img src="./extras/addAlbum.gif" width="500" height="350" />
+</p>
+
+### Search By Artist
+<p align="center">
+  <img src="./extras/searchArtist.gif" width="500" height="350" />
+</p>
+
+### Search By Album Fields
+<p align="center">
+  <img src="./extras/searchAlbum.gif" width="500" height="350" />
+</p>
 
 ## Implementation
 
@@ -31,10 +54,18 @@ For more information, feel free to view our documentation below.
 * [Node and Express](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
 
 * [MongoDB Atlas](https://www.mongodb.com/docs/)
+<p align="center">
+  <img src="./extras/atlas.gif" width="500" height="350" />
+</p>
+
 
 * [Mongoose](https://mongoosejs.com/)
 
 * [Render](https://render.com/)
+<p align="center">
+  <img src="./extras/render.gif" width="500" height="350" />
+</p>
+
 
 * [npm](https://www.npmjs.com/)
 
