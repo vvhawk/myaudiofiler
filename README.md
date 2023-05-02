@@ -1,4 +1,6 @@
-# myAudiofiler
+<p align="center">
+  <img src="./extras/logo.png"  />
+</p>
 
 ## Overview
 
