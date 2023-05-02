@@ -2,11 +2,13 @@
 
 ## Overview
 
-Welcome to myAudiofiler, our group project for SOFTWARE ENGINEERING 01:198:431 @ Rutgers University
+Welcome to myAudiofiler, our group project for [SOFTWARE ENGINEERING 01:198:431](https://www.cs.rutgers.edu/academics/undergraduate/course-synopses/course-details/01-198-431-software-engineering) @ Rutgers University
 
 This cloub-based web app is a personalized music management solution for record collectors/audiophiles. 
 
-We deployed our app using Render. Try it [HERE](https://myaudiofiler.onrender.com/)
+We are deploying our app using Render. Preview it [HERE](https://myaudiofiler.onrender.com/)  
+
+**NOTE:** This is a limited preview as our app is still undergoing development and testing. We have plans to implement more functionality than initially intended.
 
 For more information, feel free to view our documentation below. 
 
