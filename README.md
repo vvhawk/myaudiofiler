@@ -15,8 +15,6 @@ This cloub-based web app is a personalized music management solution for record 
 
 We are deploying our app using Render.
 
-**NOTE:** This is a limited preview as our app is still undergoing development and testing. We have plans to implement more functionality than initially intended.
-
 For more information, feel free to view our documentation below. 
 
 * [Requirement Report](./documents/requirements.pdf)
